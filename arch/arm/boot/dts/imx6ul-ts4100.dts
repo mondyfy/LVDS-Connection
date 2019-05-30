@@ -1,0 +1,72 @@
+/*
+ * Copyright 2017 Technologic Systems
+ *
+ * This file is dual-licensed: you can use it either under the terms
+ * of the GPL or the X11 license, at your option. Note that this dual
+ * licensing only applies to this file, and not this project as a
+ * whole.
+ *
+ *  a) This file is free software; you can redistribute it and/or
+ *     modify it under the terms of the GNU General Public License
+ *     version 2 as published by the Free Software Foundation.
+ *
+ *     This file is distributed in the hope that it will be useful
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ * Or, alternatively
+ *
+ *  b) Permission is hereby granted, free of charge, to any person
+ *     obtaining a copy of this software and associated documentation
+ *     files (the "Software"), to deal in the Software without
+ *     restriction, including without limitation the rights to use
+ *     copy, modify, merge, publish, distribute, sublicense, and/or
+ *     sell copies of the Software, and to permit persons to whom the
+ *     Software is furnished to do so, subject to the following
+ *     conditions:
+ *
+ *     The above copyright notice and this permission notice shall be
+ *     included in all copies or substantial portions of the Software.
+ *
+ *     THE SOFTWARE IS PROVIDED , WITHOUT WARRANTY OF ANY KIND
+ *     EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ *     OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *     NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ *     HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY
+ *     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *     FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ *     OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+/dts-v1/;
+#include "imx6ul-ts4100.dtsi"
+
+/ {
+	model = "Technologic Systems i.MX6ul TS-4100 (Default Device Tree)";
+	compatible = "fsl,imx6ul-ts4100", "fsl,imx6ul";
+};
+
+&iomuxc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_hog>;
+	imx6ul-ts4100 {
+		pinctrl_hog: hoggrp {
+			fsl,pins = <
+				MX6UL_PAD_GPIO1_IO01__GPIO1_IO01     0x17059 /* GPIO_1_ADC */
+				MX6UL_PAD_GPIO1_IO09__GPIO1_IO09     0x17059 /* GPIO_9_ADC */
+				MX6UL_PAD_UART1_CTS_B__GPIO1_IO18    0x1b020 /* SPARE_1 */
+				MX6UL_PAD_UART1_RTS_B__GPIO1_IO19    0x1b020 /* SPARE_2 */
+				MX6UL_PAD_NAND_DQS__GPIO4_IO16       0x1b020 /* SPARE_3 */
+				MX6UL_PAD_SNVS_TAMPER0__GPIO5_IO00   0x1b020 /* POWER_FAIL */
+				MX6UL_PAD_SNVS_TAMPER1__GPIO5_IO01   0x1b020 /* FPGA_IRQ */
+				MX6UL_PAD_SNVS_TAMPER2__GPIO5_IO02   0x1b020 /* EN_FPGA_PWR */
+				MX6UL_PAD_NAND_WP_B__GPIO4_IO11      0x1b020 /* FPGA_RESET# */
+				MX6UL_PAD_SNVS_TAMPER4__GPIO5_IO04   0x1b020 /* JTAG_FPGA_TDO */
+				MX6UL_PAD_SNVS_TAMPER5__GPIO5_IO05   0x1b020 /* JTAG_FPGA_TDI */
+				MX6UL_PAD_SNVS_TAMPER6__GPIO5_IO06   0x1b020 /* JTAG_FPGA_TMS */
+				MX6UL_PAD_SNVS_TAMPER7__GPIO5_IO07   0x1b020 /* JTAG_FPGA_TCK */
+			>;
+		};
+	};
+};
